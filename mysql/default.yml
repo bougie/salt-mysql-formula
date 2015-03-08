@@ -1,7 +1,7 @@
 {% load_yaml as rawmap %}
 FreeBSD:
     package: mysql56
-    service: mysql
+    service: mysql-server
     config:
         file: /usr/local/etc/my.cnf
         sections:
