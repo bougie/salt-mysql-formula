@@ -17,5 +17,22 @@
     mysql_database:
         - present
         - name: {{dbname}}
+        {% if 'master_user' in rawmap %}
+            {% set con = rawmap.master_user %}
+            {% if 'host' in con %}
+        - connection_host: {{con.host}}
+            {% else %}
+        - connection_host: localhost
+            {% endif %}
+            {% if 'port' in con %}
+        - connection_port: {{con.port}}
+            {% endif %}
+            {% if 'user' in con %}
+        - connection_user: {{con.user}}
+            {% endif %}
+            {% if 'password' in con %}
+        - connection_password: {{con.password}}
+            {% endif %}
+        {% endif %}
     {% endfor %}
 {% endif %}
