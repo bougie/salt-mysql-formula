@@ -15,13 +15,13 @@ extend:
         service:
             - watch:
                 - file: mysql_config
-                - pkg: mysql_package
+                - pkg: mysql_server_package
             - require:
                 - file: mysql_config
     mysql_config:
         file:
             - require:
-                - pkg: mysql_package
+                - pkg: mysql_server_package
 {% if rawmap.admin and 'master_user' in rawmap %}
     mysql_master_password:
         cmd:

@@ -1,6 +1,7 @@
 {% load_yaml as rawmap %}
 FreeBSD:
-    package: mysql56
+    server_package: mysql56-server
+    client_package: mysql56-client
     pymysql: pymysql
     service: mysql-server
     admin: True
