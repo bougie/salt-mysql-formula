@@ -8,6 +8,7 @@ include:
    - mysql.service
 {% if rawmap.admin %}
    - mysql.users
+   - mysql.databases
 {% endif %}
 
 extend:

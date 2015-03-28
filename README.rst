@@ -39,3 +39,8 @@ Manage the startup and running state of the mysql server.
 ---------------
 
 Manage mysql users and their databases associated
+
+``mysql.databases``
+-------------------
+
+Manage mysql databases and acess rights for users
