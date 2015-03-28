@@ -1,11 +1,16 @@
 {% load_yaml as rawmap %}
 FreeBSD:
     package: mysql56
+    pymysql: pymysql
     service: mysql-server
+    admin: True
     config:
         file: /usr/local/etc/my.cnf
         sections:
             mysqld:
                 bind-address: 0.0.0.0
                 port: 3306
+    master_user:
+        username: root
+        password: root
 {% endload %}

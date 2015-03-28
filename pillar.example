@@ -1,3 +1,10 @@
 mysql:
     config:
         file: /etc/mysql/my.cnf
+    master_user:
+        username: root
+        password: password
+    users:
+        toto:
+            password: toto
+            host: '%'

@@ -4,3 +4,9 @@
 mysql_package:
     pkg.installed:
         - name: {{mysql.package}}
+
+{% if mysql.admin %}
+python_mysql:
+    pkg.installed:
+        - name: {{mysql.pymysql}}
+{% endif %}

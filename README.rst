@@ -34,3 +34,8 @@ Manage the mysql server configuration file.
 -----------------
 
 Manage the startup and running state of the mysql server.
+
+``mysql.users``
+---------------
+
+Manage mysql users and their databases associated

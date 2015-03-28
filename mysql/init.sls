@@ -1,9 +1,14 @@
 # Meta-state to fully install mysql
+{% from "mysql/default.yml" import rawmap with context %}
+{% set rawmap = salt['grains.filter_by'](rawmap, grain='os', merge=salt['pillar.get']('mysql')) %}
 
-require:
+include:
    - mysql.install
    - mysql.config
    - mysql.service
+{% if rawmap.admin %}
+   - mysql.users
+{% endif %}
 
 extend:
     mysql_service:
@@ -17,3 +22,9 @@ extend:
         file:
             - require:
                 - pkg: mysql_package
+{% if rawmap.admin and 'master_user' in rawmap %}
+    mysql_master_password:
+        cmd:
+            - require:
+                - service: mysql_service
+{% endif %}
