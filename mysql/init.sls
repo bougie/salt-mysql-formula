@@ -1,24 +1,19 @@
-{% from "mysql/default.yml" import rawmap with context %}
-{% set mysql = salt['grains.filter_by'](rawmap, grain='os', merge=salt['pillar.get']('mysql')) %}
+# Meta-state to fully install mysql
 
-{{mysql.package}}:
-    pkg.installed:
-        - name: {{mysql.package}}
+require:
+   - mysql.install
+   - mysql.config
+   - mysql.service
 
-{{mysql.service}}:
-    service:
-        - running
-        - watch:
-            - file: {{mysql.config.file}}
-        - require:
-            - pkg: {{mysql.package}}
-
-{{mysql.config.file}}:
-    file.managed:
-        - source: salt://mysql/files/my.cnf
-        - template: jinja
-        - user: root
-        - group: wheel
-        - mode: 0644
-        - require:
-            - pkg: {{mysql.package}}
+extend:
+    mysql_service:
+        service:
+            - watch:
+                - file: mysql_config
+                - pkg: mysql_package
+            - require:
+                - file: mysql_config
+    mysql_config:
+        file:
+            - require:
+                - pkg: mysql_package
