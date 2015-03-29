@@ -7,7 +7,7 @@ mysql:
     users:
         toto:
             password: toto
-            host: '%'
+            host: "'%'"
     databases:
         - db_toto:
             user: toto
