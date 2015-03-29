@@ -8,3 +8,7 @@ mysql:
         toto:
             password: toto
             host: '%'
+	databases:
+		- db_toto:
+			user: toto
+        - db_tata
