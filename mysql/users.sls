@@ -11,7 +11,8 @@ mysql_master_password:
 {% if 'users' in rawmap and rawmap.users is mapping %}
     {% for user, config in rawmap.users.items() %}
 {{'mysql_user_' ~ user}}:
-    mysql_user.present:
+    mysql_user:
+        - present
         - name: {{user}}
         {% if 'password_hash' in config %}
         - password_hash: {{config.password_hash}}

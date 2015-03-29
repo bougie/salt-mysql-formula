@@ -3,5 +3,5 @@
 
 mysql_service:
     service:
-        - name: {{mysql.service}}
         - running
+        - name: {{mysql.service}}

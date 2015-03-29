@@ -2,7 +2,8 @@
 {% set mysql = salt['grains.filter_by'](rawmap, grain='os', merge=salt['pillar.get']('mysql')) %}
 
 mysql_config:
-    file.managed:
+    file:
+        - managed
         - name: {{mysql.config.file}}
         - source: salt://mysql/files/my.cnf
         - template: jinja
