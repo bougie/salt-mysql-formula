@@ -2,7 +2,7 @@
 FreeBSD:
     server_package: mysql56-server
     client_package: mysql56-client
-    pymysql: pymysql
+    pymysql: py27-MySQLdb56
     service: mysql-server
     admin: True
     config:

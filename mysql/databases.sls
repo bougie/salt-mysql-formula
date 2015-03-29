@@ -32,11 +32,11 @@
             {% if 'port' in con %}
         - connection_port: {{con.port}}
             {% endif %}
-            {% if 'user' in con %}
-        - connection_user: {{con.user}}
+            {% if 'username' in con %}
+        - connection_user: {{con.username}}
             {% endif %}
             {% if 'password' in con %}
-        - connection_password: {{con.password}}
+        - connection_pass: {{con.password}}
             {% endif %}
         {% endif %}
 
@@ -57,11 +57,11 @@
                 {% if 'port' in con %}
         - connection_port: {{con.port}}
                 {% endif %}
-                {% if 'user' in con %}
-        - connection_user: {{con.user}}
+                {% if 'username' in con %}
+        - connection_user: {{con.username}}
                 {% endif %}
                 {% if 'password' in con %}
-        - connection_password: {{con.password}}
+        - connection_pass: {{con.password}}
                 {% endif %}
             {% endif %}
         {% endif %}
